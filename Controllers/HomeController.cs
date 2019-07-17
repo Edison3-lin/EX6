@@ -30,7 +30,7 @@ namespace EX6.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string BU,string TextBox1,string Gender,string xGender,string SSS)
+        public ActionResult Index(string BU,string TextBox1,string Gender,string xGender)
         {
             //View()頁面key-in的data，傳送至第二頁面Edit()
             ViewBag.Page = 2;
@@ -52,7 +52,7 @@ namespace EX6.Controllers
             //DropDownList default "BU8"
             SelectList DepList = new SelectList(DepL, "Key", "Value", BU);
             ViewData["BU"] = DepList;
-            if (SSS == "下一步")
+            if (xGender == "xyz")
                 return View();
             else
                 return RedirectToAction("Final");

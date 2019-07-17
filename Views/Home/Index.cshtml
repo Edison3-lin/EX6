@@ -8,13 +8,57 @@
     <link rel="stylesheet" href="~/Content/jquery-ui.css">
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
- 
+
+<!-- 
     <script>
     $(document).ready(function(){
       $("form").submit(function(){
         if(@ViewBag.Page == "2"){
           alert("確認?");}
       });
+      $("#Gender2").hide();
+    });
+    </script>
+-->
+
+ 
+    <script>
+    $(document).ready(function()
+    {
+      
+$("button").click(function(){
+		$.get("/try/ajax/demo_test.php",function(data,status){
+			alert("数据: " + data + "\n状态: " + status);
+		});
+	});
+
+<!--      
+      $("input").focus(function(){
+        $(this).css("background-color","gray");
+      });
+      $("input").blur(function(){
+        $(this).css("background-color","green");
+      });
+        
+      $("button").mouseenter(function()
+      {
+        $("button").css("background-color","yellow");
+      });
+
+      $("button").mouseleave(function()
+      {
+        $("button").css("background-color","lightgray");
+      });
+        
+      $("form").submit(function()
+      {
+        if(@ViewBag.Page == "2") alert("確認?"); 
+      });
+      $("button").click(function()
+      {
+        $("form").submit();        
+      });    
+-->      
     });
     </script>
 
@@ -34,22 +78,20 @@
             <h2>和碩聯合科技員工</h2>
             <div class="MyTitleStyle">
                 <p>
-                    <a title="Input name" style="color:yellow">@ViewBag.name</a>
+                    <a title="輸入名字" style="color:DarkRed">@ViewBag.name</a>
 
                     @Html.Action("_Name", "Home", new { id = (int)@ViewBag.Page })
 
                     <!--顯示部門的DropDownList-->
                 <p>
-                    <a title="Input Department" style="color:blue">@ViewBag.department</a>
+                    <a title="選擇部門" style="color:DarkRed">@ViewBag.department</a>
 
                     @Html.DropDownList("BU", null, new { size = "1", style = "font-size:20px;background-color:green" })
                     <br>
-
-                    <br>
+                    
                     <!--輸入性別的RadioButton-->
                 <p>
-                    <a title="Input Gender" style="color:green">@ViewBag.sex</a>
-
+                    <a title="點選性別" style="color:DarkRed">@ViewBag.sex</a>
 
                     @if ((ViewBag.Page == 2) && ((string)TempData["eGender"] == "男"))
                     {
@@ -57,7 +99,8 @@
                         <input type="radio" name="Gender" value="男" checked disabled>
                         @:女
                         <input type="radio" name="Gender" value="女" disabled>
-                        <input type="text" Style="width:0px;height:0px" hidden name="xGender" value="男">                        
+                        <input type="text" name="xGender" hidden id="Gender2" value="男">                                                  
+
                     }
                     else if ((ViewBag.Page == 2) && ((string)TempData["eGender"] == "女"))
                     {
@@ -65,7 +108,7 @@
                         <input type="radio" name="Gender" value="男" disabled>
                         @:女
                         <input type="radio" name="Gender" value="女" checked disabled>
-                        <input type="text" Style="width:0px;height:0px" hidden name="xGender" value="女">                        
+                        <input type="text" name="xGender" hidden id="Gender2" value="女">                        
                     }
                     else
                     {
@@ -73,20 +116,18 @@
                         <input type="radio" name="Gender" value="男" checked>
                         @:女
                         <input type="radio" name="Gender" value="女">
+                        <input type="text" name="xGender" hidden id="Gender2" value="xyz">                        
                     }
             </div>
         </div>
-
-        @if (ViewBag.Page == 1)
-        {<input type="submit" value="下一步" name="SSS" class="MyStyle1" /> }
-        else if (ViewBag.Page == 2)
-        { <input type="submit" value="確認" name="SSS" class="MyStyle1" />}
     </form>
+    
+        @if (ViewBag.Page == 1)
+        { <button>下一步</button> }
+        else if (ViewBag.Page == 2)
+        { <button>確認</button> }
 
-    @section Scripts {
-        @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
-        @Scripts.Render("~/Scripts/jquery-1.11.4-ui.min.js")
-    }
+
 </body>
 }
 </html>

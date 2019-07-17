@@ -3,11 +3,11 @@
         <!--輸入姓名的TextBox-->
         @if (ViewBag.id == 2)
         {
-            <input type="text" Style="background-color:gray" readonly name="TextBox1" value=@TempData["eTextBox1"] MaxLength="20">
+            <input type="text" Style="background-color:gray" required readonly name="TextBox1" value=@TempData["eTextBox1"] MaxLength="20">
         }
         else
         {
-            <input type="text" Style="background-color:green" required title="EdisonLin" placeholder="Edison" id="TB1" name="TextBox1" MaxLength="20" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+            <input type="text" Style="background-color:green" required title="EdisonLin" id="TB1" name="TextBox1" MaxLength="20" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
         }
         <br>
 
