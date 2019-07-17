@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>第一頁</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/StyleSheet.css">
+    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+ 
+    <script>
+    $(document).ready(function(){
+      $("form").submit(function(){
+        if(@ViewBag.Page == "2"){
+          alert("確認?");}
+      });
+    });
+    </script>
+
+    <style>
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+    </style>
+</head>
+
+@using (Html.BeginForm())
+{
+<body>
+    <form action="">
+        <div class="hero">
+            <h2>和碩聯合科技員工</h2>
+            <div class="MyTitleStyle">
+                <p>
+                    <a title="Input name" style="color:yellow">@ViewBag.name</a>
+
+                    @Html.Action("_Name", "Home", new { id = (int)@ViewBag.Page })
+
+                    <!--顯示部門的DropDownList-->
+                <p>
+                    <a title="Input Department" style="color:blue">@ViewBag.department</a>
+
+                    @Html.DropDownList("BU", null, new { size = "1", style = "font-size:20px;background-color:green" })
+                    <br>
+
+                    <br>
+                    <!--輸入性別的RadioButton-->
+                <p>
+                    <a title="Input Gender" style="color:green">@ViewBag.sex</a>
+
+
+                    @if ((ViewBag.Page == 2) && ((string)TempData["eGender"] == "男"))
+                    {
+                        @:男
+                        <input type="radio" name="Gender" value="男" checked disabled>
+                        @:女
+                        <input type="radio" name="Gender" value="女" disabled>
+                        <input type="text" Style="width:0px;height:0px" hidden name="xGender" value="男">                        
+                    }
+                    else if ((ViewBag.Page == 2) && ((string)TempData["eGender"] == "女"))
+                    {
+                        @:男
+                        <input type="radio" name="Gender" value="男" disabled>
+                        @:女
+                        <input type="radio" name="Gender" value="女" checked disabled>
+                        <input type="text" Style="width:0px;height:0px" hidden name="xGender" value="女">                        
+                    }
+                    else
+                    {
+                        @:男
+                        <input type="radio" name="Gender" value="男" checked>
+                        @:女
+                        <input type="radio" name="Gender" value="女">
+                    }
+            </div>
+        </div>
+
+        @if (ViewBag.Page == 1)
+        {<input type="submit" value="下一步" name="SSS" class="MyStyle1" /> }
+        else if (ViewBag.Page == 2)
+        { <input type="submit" value="確認" name="SSS" class="MyStyle1" />}
+    </form>
+
+    @section Scripts {
+        @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+        @Scripts.Render("~/Scripts/jquery-1.11.4-ui.min.js")
+    }
+</body>
+}
+</html>

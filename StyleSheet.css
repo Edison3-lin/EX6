@@ -1,0 +1,77 @@
+﻿body {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 32px;
+    font-family: Palatino, 'Palatino Linotype', serif;
+    color: rgb(121,149,117);
+}
+
+h2 {
+    font-size: 56px;
+}
+
+
+.hero {
+    padding: 250px 0;
+    margin: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://i1.achangpro.com/img.inmywordz.com/uploads/20170309133325_13.jpg");
+    background-size: cover;
+    color: white;
+}
+
+
+p {
+    font-size: 2rem;
+}
+
+.hero a {
+    color: #00FFAA;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+#footer {
+    font-size: 1rem;
+    color: yellow;
+}
+
+.MyStyle1
+{
+  width:120px;
+  height:40px;
+  font-size:24px;
+  border:3px green solid;
+  color:black;
+  background-color:wheat;
+  font-family:Broadway;
+  padding:1px;
+}
+
+.MyInputStyle 
+{
+    font-size: 30px;
+    background-color: green;
+    font-family: Verdana;
+    width: 380px;
+}
+
+.MyInputStyle2 {
+    font-size: 30px;
+    background-color: green;
+    font-family: Verdana;
+    width: 380px;
+}
+
+.MyTitleStyle
+{
+  font-size:20px;
+  font-family:Verdana;
+  border:none;
+}
+

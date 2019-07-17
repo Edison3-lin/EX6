@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+    <h2>
+        和碩聯合科技員工
+    </h2>
+
+<!--建立文字樣式的class-->
+    <style type="text/css">
+      .MyStyle
+      {
+        width:50px;
+        background-color:white;
+        border:none;
+        color:gray;          
+        font-size:17px;
+        padding:1px;
+      }
+      .MyStyle2
+      {
+        font-size:17px;
+        border:none;
+        background-color:white;
+        color:gray;          
+      }
+      .MyStyle3
+      {
+        width:120px;
+        height:40px;
+        font-size:24px;
+        border:3px red solid;
+        background-color:yellow;
+        font-family:DFKai-SB;
+        padding:1px;
+      }
+    </style>
+    
+    @using(Html.BeginForm())
+    {
+      <form>
+<!--顯示跑馬燈效果-->
+      <e style="background-color:red;font-size:30px;font-family:Algerian">
+      <marquee onMouseOver="this.stop()" onMouseOut="this.start()" direction="right" height="36" scrollamount="5" behavior="alternate">
+        Homework #2
+      </marquee>   
+      </e> 
+      
+<!--顯示部門的DropDownList-->
+      <input type="text" value="部門：" disabled class="MyStyle">      
+      @Html.DropDownList("BU")
+      <hr>
+      
+<!--姓名的TextBox,不可選擇-->
+      <input type="text" value="姓名：" disabled class="MyStyle">      
+      <input type="text" name="TextBox1" value=@TempData["eTextBox1"] ReadOnly class="MyStyle2">      
+      <hr>
+      
+<!--性別的TextBox,不可選擇-->
+      <input type="text" value="性別：" disabled class="MyStyle">
+      <input type="text" name="Gender" value=@TempData["eGender"] ReadOnly class="MyStyle2">      
+      <hr>
+
+<!-- @TempData["eGender"] 這個object如何傳入使用
+      @if( @TempData["eGender"] == "男")
+      {
+      <e>
+      <input type="radio" name="Gender" value="男" checked="true">男 <br>
+      <input type="radio" name="Gender" value="女" checked="false">女 <br>
+      </e>
+      }
+      else
+      {
+      <e>
+      <input type="radio" name="Gender" value="男" checked="false">男 <br>
+      <input type="radio" name="Gender" value="女" checked="true">女 <br>
+      </e>
+      }
+-->
+
+<img src="~/Edison.JPG"/>
+<a href="http://www.googel.com">Google Link</a>
+<video width="450px" height="350px" controls>
+  <source src="~/xxx.mp4" type="video/mp4">
+</video>
+
+<!--送出submit和"回到上一頁"的button-->
+      <input type="submit" value="修改" class="MyStyle3"> 
+      <input type="button" onclick="history.back()" value="回到上一頁" >    
+      </form>
+      }  
+   
+    
