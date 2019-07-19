@@ -172,8 +172,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Edison.cshtml" />
-    <Content Include="Views\Shared\_Name.cshtml" />
     <Content Include="Views\Home\Final.cshtml" />
+    <Content Include="Views\Shared\_Name.cshtml" />
+    <Content Include="Views\Shared\_Sex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,27 +4,23 @@
 [Open Files]
 Active File Display Mode=1
 Active File Index=0
-Open File Line0=279
-Open File Line1=863
+Open File Line0=1887
+Open File Line1=287
 Open File Line2=3
 Open File Line3=3
-Open File Line4=0
-Open File Pos0=616
-Open File Pos1=2029
-Open File Pos2=298
-Open File Pos3=3
-Open File Pos4=64
+Open File Pos0=2528
+Open File Pos1=1111
+Open File Pos2=157
+Open File Pos3=1563
 Open File Window Pos0=0,1,-1,-1,-1,-1,5,27,1915,892
 Open File Window Pos1=0,1,-1,-1,-1,-1,5,27,1915,892
 Open File Window Pos2=0,1,-1,-1,-1,-1,5,27,1915,892
 Open File Window Pos3=0,1,-1,-1,-1,-1,5,27,1915,892
-Open File Window Pos4=0,1,-1,-1,-1,-1,5,27,1915,892
 Open File0=.+AFw-Views+AFw-Home+AFw-Index.cshtml
 Open File1=.+AFw-Controllers+AFw-HomeController.cs
 Open File2=.+AFw-Views+AFw-Shared+AFwAXw-Name.cshtml
-Open File3=.+AFw-StyleSheet.css
-Open File4=.+AFw-demo+AF8-test.php
-Open File5=
+Open File3=.+AFw-Views+AFw-Shared+AFwAXw-Sex.cshtml
+Open File4=
 Remember Files=0
 
 [Project Information]

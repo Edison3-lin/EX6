@@ -25,14 +25,6 @@
     <script>
     $(document).ready(function()
     {
-      
-$("button").click(function(){
-		$.get("/try/ajax/demo_test.php",function(data,status){
-			alert("数据: " + data + "\n状态: " + status);
-		});
-	});
-
-<!--      
       $("input").focus(function(){
         $(this).css("background-color","gray");
       });
@@ -58,10 +50,20 @@ $("button").click(function(){
       {
         $("form").submit();        
       });    
--->      
     });
     </script>
 
+    <script language="JavaScript" type="text/javascript">
+        function ShowTime()
+        {
+            var NowDate = new Date();
+            var d = NowDate.getDay();
+            var dayNames = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+            document.getElementById('showbox').innerHTML = '目前時間：' + NowDate.toLocaleString() + '（' + dayNames[d] + '）';
+            setTimeout('ShowTime()', 1000);
+        }
+    </script>
+    
     <style>
         label {
             display: inline-block;
@@ -70,8 +72,16 @@ $("button").click(function(){
     </style>
 </head>
 
+
 @using (Html.BeginForm())
 {
+
+<body onload="ShowTime()">
+    <form id="form1" runat="server">
+        <div id = "showbox"></div>
+    </form>
+</body>  
+
 <body>
     <form action="">
         <div class="hero">
@@ -80,44 +90,21 @@ $("button").click(function(){
                 <p>
                     <a title="輸入名字" style="color:DarkRed">@ViewBag.name</a>
 
-                    @Html.Action("_Name", "Home", new { id = (int)@ViewBag.Page })
+@ViewBag.Page
+                    @Html.Partial("_Name")
 
                     <!--顯示部門的DropDownList-->
                 <p>
-                    <a title="選擇部門" style="color:DarkRed">@ViewBag.department</a>
-
+                    <a title="選擇部門" style="color:Black">@ViewBag.department</a>
+@ViewBag.Page
                     @Html.DropDownList("BU", null, new { size = "1", style = "font-size:20px;background-color:green" })
                     <br>
+                   
                     
-                    <!--輸入性別的RadioButton-->
-                <p>
-                    <a title="點選性別" style="color:DarkRed">@ViewBag.sex</a>
+                    <!--輸入性別的RadioButton
+                    @Html.Partial("_Sex") -->
 
-                    @if ((ViewBag.Page == 2) && ((string)TempData["eGender"] == "男"))
-                    {
-                        @:男
-                        <input type="radio" name="Gender" value="男" checked disabled>
-                        @:女
-                        <input type="radio" name="Gender" value="女" disabled>
-                        <input type="text" name="xGender" hidden id="Gender2" value="男">                                                  
-
-                    }
-                    else if ((ViewBag.Page == 2) && ((string)TempData["eGender"] == "女"))
-                    {
-                        @:男
-                        <input type="radio" name="Gender" value="男" disabled>
-                        @:女
-                        <input type="radio" name="Gender" value="女" checked disabled>
-                        <input type="text" name="xGender" hidden id="Gender2" value="女">                        
-                    }
-                    else
-                    {
-                        @:男
-                        <input type="radio" name="Gender" value="男" checked>
-                        @:女
-                        <input type="radio" name="Gender" value="女">
-                        <input type="text" name="xGender" hidden id="Gender2" value="xyz">                        
-                    }
+                    
             </div>
         </div>
     </form>

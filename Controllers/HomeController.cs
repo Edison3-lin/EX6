@@ -58,12 +58,13 @@ namespace EX6.Controllers
                 return RedirectToAction("Final");
         }
 
+/*
         public ActionResult _Name(int id)
         {
             ViewBag.id = id;
             return PartialView("_Name");
         }
-
+*/
         public ActionResult Final()
         {
             Response.Write("<h2>和碩聯合科技員工");
