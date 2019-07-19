@@ -53,17 +53,6 @@
     });
     </script>
 
-    <script language="JavaScript" type="text/javascript">
-        function ShowTime()
-        {
-            var NowDate = new Date();
-            var d = NowDate.getDay();
-            var dayNames = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
-            document.getElementById('showbox').innerHTML = '目前時間：' + NowDate.toLocaleString() + '（' + dayNames[d] + '）';
-            setTimeout('ShowTime()', 1000);
-        }
-    </script>
-    
     <style>
         label {
             display: inline-block;
@@ -75,13 +64,6 @@
 
 @using (Html.BeginForm())
 {
-
-<body onload="ShowTime()">
-    <form id="form1" runat="server">
-        <div id = "showbox"></div>
-    </form>
-</body>  
-
 <body>
     <form action="">
         <div class="hero">
@@ -92,7 +74,7 @@
 
 @ViewBag.Page
                     @Html.Partial("_Name")
-
+@TempData["TextBox1"]
                     <!--顯示部門的DropDownList-->
                 <p>
                     <a title="選擇部門" style="color:Black">@ViewBag.department</a>
@@ -101,8 +83,8 @@
                     <br>
                    
                     
-                    <!--輸入性別的RadioButton
-                    @Html.Partial("_Sex") -->
+                    <!--輸入性別的RadioButton-->
+                    @Html.Partial("_Sex")
 
                     
             </div>
