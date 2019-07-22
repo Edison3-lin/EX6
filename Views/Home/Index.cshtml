@@ -63,14 +63,6 @@
         }
     </style>
 </head>
-
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.WORK_NAME)</th>            
-        <th>@Html.DisplayNameFor(model => model.BU_ID)</th>            
-        <th>@Html.DisplayNameFor(model => model.Gender)</th>            
-    </tr>
-</table>
     
 @using (Html.BeginForm())
 {
@@ -79,19 +71,18 @@
         <div class="hero">
             <h2>和碩聯合科技員工</h2>
             <div class="MyTitleStyle">
-                <p>
-                    <a title="輸入名字" style="color:DarkRed">@ViewBag.name</a>
 
-                    @Html.Partial("_Name")
-                    <!--顯示部門的DropDownList-->
                 <p>
-                    <a title="選擇部門" style="color:Black">@ViewBag.department</a>
-                    @Html.DropDownListFor(model => model.BU_ID, BU, new { style="background-color:green;width:280px;height:36px;font-size:18px;color:Black", @class = "form-control" } )   
+                    <a title="選擇部門" style="color:Black">@Html.DisplayNameFor(model => model.BU_ID)</a>
+                    @Html.DropDownListFor(model => model.BU_ID, BU, new { style = "background-color:green;width:280px;height:36px;font-size:18px;color:Black" })   
                     <br>
-                    @ViewBag.BU                   
-                    <br>
-                    
-                    <!--輸入性別的RadioButton-->
+
+                <p>
+                    <a title="輸入名字" style="color:DarkRed">@Html.DisplayNameFor(model => model.WORK_NAME)</a>
+                    @Html.Partial("_Name")
+
+                <p>
+                    <a title="輸入性別" style="color:DarkRed">@Html.DisplayNameFor(model => model.Gender)</a>
                     @Html.Partial("_Sex")
 
                     

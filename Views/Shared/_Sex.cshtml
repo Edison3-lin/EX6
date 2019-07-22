@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null; 
+}
+
+                    <a title="點選性別" style="color:Black">@ViewBag.sex</a>
+
+                    @if (ViewBag.Page == 2) 
+                    {
+                        if((string)TempData["eGender"] == "男")
+                        {
+                          @:男
+                          <input type="radio" name="Gender" value="男" checked disabled>
+                          @:女
+                          <input type="radio" name="Gender" value="女" disabled>
+                          <input type="text" name="xGender" hidden id="Gender2" value="男">                                                  
+                        }
+                        else
+                        {
+                          @:男
+                          <input type="radio" name="Gender" value="男" disabled>
+                          @:女
+                          <input type="radio" name="Gender" value="女" checked disabled>
+                          <input type="text" name="xGender" hidden id="Gender2" value="女">                        
+                        }
+                    }    
+                    else
+                    {
+                        @:男
+                        <input type="radio" name="Gender" value="男" checked>
+                        @:女
+                        <input type="radio" name="Gender" value="女">
+                        <input type="text" name="xGender" hidden id="Gender2" value="xyz">                        
+                    }
