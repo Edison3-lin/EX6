@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EX6.Models;
 
 namespace EX6.Controllers
 {
@@ -12,12 +13,12 @@ namespace EX6.Controllers
         public ActionResult Index()
         {
             //Initial data，部門
+            Pega P = new Pega();
+            P.Page = 1;
+            P.WORK_NAME = "Edison";
+            P.BU_ID = "BU8";
+            P.Gender = "男";
             ViewBag.Page = 1;
-            ViewBag.name = "姓名: ";
-            ViewBag.department = "部門: ";
-            ViewBag.sex = "性別: ";
-            ViewBag.male = " 男";
-            ViewBag.female = " 女";
             IDictionary<string, string> DepL = new Dictionary<string, string>();
             DepL.Add("BU5", "BU5");
             DepL.Add("BU6", "BU6");
@@ -26,11 +27,11 @@ namespace EX6.Controllers
             DepL.Add("BU9", "BU9");
             //DropDownList default "BU8"
             SelectList DepList = new SelectList(DepL, "Key", "Value", "BU8");
-            ViewData["BU"] = DepList; 
-            return View();
+            ViewBag.BU = DepList; 
+            return View(P);
         }
         [HttpPost]
-        public ActionResult Index(string BU,string TextBox1,string Gender,string xGender)
+        public ActionResult Index(Pega P,string BU,string TextBox1,string Gender,string xGender)
         {
             //View()頁面key-in的data，傳送至第二頁面Edit()
             ViewBag.Page = 2;
@@ -39,7 +40,7 @@ namespace EX6.Controllers
             ViewBag.sex = "性別: ";
             ViewBag.male = " 男";
             ViewBag.female = " 女";
-            TempData["eBU"]=BU;
+            TempData["eBU"]=P.BU_ID;
             TempData["eTextBox1"]=TextBox1;
             TempData["eGender"]=Gender;
             TempData["fGender"]=xGender;

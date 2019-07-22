@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model EX6.Models.Pega
+@{IEnumerable<SelectListItem> BU = ViewBag.BU; }
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -61,7 +64,14 @@
     </style>
 </head>
 
-
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.WORK_NAME)</th>            
+        <th>@Html.DisplayNameFor(model => model.BU_ID)</th>            
+        <th>@Html.DisplayNameFor(model => model.Gender)</th>            
+    </tr>
+</table>
+    
 @using (Html.BeginForm())
 {
 <body>
@@ -72,16 +82,14 @@
                 <p>
                     <a title="輸入名字" style="color:DarkRed">@ViewBag.name</a>
 
-@ViewBag.Page
                     @Html.Partial("_Name")
-@TempData["TextBox1"]
                     <!--顯示部門的DropDownList-->
                 <p>
                     <a title="選擇部門" style="color:Black">@ViewBag.department</a>
-@ViewBag.Page
-                    @Html.DropDownList("BU", null, new { size = "1", style = "font-size:20px;background-color:green" })
+                    @Html.DropDownListFor(model => model.BU_ID, BU, new { style="background-color:green;width:280px;height:36px;font-size:18px;color:Black", @class = "form-control" } )   
                     <br>
-                   
+                    @ViewBag.BU                   
+                    <br>
                     
                     <!--輸入性別的RadioButton-->
                     @Html.Partial("_Sex")
