@@ -4,40 +4,27 @@
 <head>
     <title>第一頁</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="~/StyleSheet.css">
-    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <link rel="stylesheet" href="~/test.css">
     <script src="~/Scripts/vue.js"></script>    
 </head>
 <body>
-  <div class="xxx">
-    <h2>待辦事項</h2>
-    <input type="text" placeholder="請輸入todo事項" v-model="newtodo" @keyup.enter="addtodo(newtodo)">
-    <ol>
-      <li v-for="d in todo">
-        {{d.content}} - 
-        <a href="#" @click.prevent="deltodo(d)">刪除</a>
-      </li>
-    </ol>
+  <div id="myApp">
+    <div v-bind:class="{MyTest:isActive}">林宏斌</div>
+    <div :class="{MyTest:isActive}">屏東縣</div>
+    <button v-on:click="btnClick">Toggle套入樣式</button>
   </div>
-<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>   
+   
 <script>
-var edison = new Vue({
-  el:'.xxx',
+var myApp = new Vue({
+  el:'#myApp',
   data:{
-    todo:[],
-    newtodo:''
+    isActive:true
   },  
   methods:{
-    addtodo:function(t){
-      this.todo.push({
-        content:t,
-        completed:false
-      })
+    btnClick:function(){
+      this.isActive = !this.isActive;
     },
-    deltodo:function(t){
-      this.todo.splice(this.todo.indexOf(t),1)
-  }
-}
+  },
 });
 </script>
 
