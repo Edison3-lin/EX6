@@ -1,7 +1,4 @@
-﻿@model EX6.Models.Pega
-@{IEnumerable<SelectListItem> BU = ViewBag.BU; }
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -9,93 +6,47 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="~/StyleSheet.css">
     <link rel="stylesheet" href="~/Content/jquery-ui.css">
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-
-
-<!-- 
-    <script>
-    $(document).ready(function(){
-      $("form").submit(function(){
-        if(@ViewBag.Page == "2"){
-          alert("確認?");}
-      });
-      $("#Gender2").hide();
-    });
-    </script>
--->
-
- 
-    <script>
-    $(document).ready(function()
-    {
-      $("input").focus(function(){
-        $(this).css("background-color","gray");
-      });
-      $("input").blur(function(){
-        $(this).css("background-color","green");
-      });
-        
-      $("button").mouseenter(function()
-      {
-        $("button").css("background-color","yellow");
-      });
-
-      $("button").mouseleave(function()
-      {
-        $("button").css("background-color","lightgray");
-      });
-        
-      $("form").submit(function()
-      {
-        if(@ViewBag.Page == "2") alert("確認?"); 
-      });
-      $("button").click(function()
-      {
-        $("form").submit();        
-      });    
-    });
-    </script>
-
-    <style>
-        label {
-            display: inline-block;
-            width: 5em;
-        }
-    </style>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>    
 </head>
-    
-@using (Html.BeginForm())
-{
 <body>
-    <form action="">
-        <div class="hero">
-            <h2>和碩聯合科技員工</h2>
-            <div class="MyTitleStyle">
+  <div id="myApp">
+    <h3>你最喜歡的球星：</h3>
+    <select v-model="likedNBAStar" style="width: 210px;">
+      <option>Cobe Bryn</option>
+      <option>James Harden</option>
+      <option>Labron James</option>
+    </select>
+    <h3>我的全明星：</h3>
+    <select v-model="likedNBAStars" multiple style="width: 210px;height: 210px;">
+      <option>Cobe Bryn</option>
+      <option>James Harden</option>
+      <option>Labron James</option>
+      <option>Steven Curry</option>
+      <option>Keven Drun</option>
+      <option>Michale Jordan</option>
+      <option>James Harden2</option>
+      <option>Labron James2</option>
+      <option>Steven Curry2</option>
+      <option>Keven Drun2</option>
+    </select>
+    <h3>選擇結果</h3>
+    <p>我最喜歡：{{likedNBAStar}}</p>
+    <p>我的全明星:{{likedNBAStars}}</p>
+  </div>    
+<script>
+  var myApp = new Vue({
+    el:'#myApp',
+    data:{
+      likedNBAStar: null,
+      likedNBAStars: [],
+    },
+    method:{
+      
+    }
+})
+</script>
 
-                <p>
-                    <a title="選擇部門" style="color:Black">@Html.DisplayNameFor(model => model.BU_ID)</a>
-                    @Html.DropDownListFor(model => model.BU_ID, BU, new { style = "background-color:green;width:280px;height:36px;font-size:18px;color:Black" })   
-                    <br>
 
-                <p>
-                    <a title="輸入名字" style="color:DarkRed">@Html.DisplayNameFor(model => model.WORK_NAME)</a>
-                    @Html.Partial("_Name")
+</body>    
 
-                <p>
-                    <a title="輸入性別" style="color:DarkRed">@Html.DisplayNameFor(model => model.Gender)</a>
-                    @Html.Partial("_Sex")
-
-                    
-            </div>
-        </div>
-    </form>
-    
-        @if (ViewBag.Page == 1)
-        { <button>下一步</button> }
-        else if (ViewBag.Page == 2)
-        { <button>確認</button> }
-
-
-</body>
-}
 </html>
