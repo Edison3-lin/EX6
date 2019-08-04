@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+}
+@{IEnumerable<SelectListItem> BU = ViewBag.BU; }
+
+@Html.DropDownListFor(@Model.BU_ID, BU, new { style="background-color:green;width:280px;height:36px;font-size:18px;color:Black" } )   
+@Model.BU_ID
+<br>
