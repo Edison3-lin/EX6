@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>第一頁</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/StyleSheet.css">
+    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>    
+</head>
+<body>
+  <div id="myApp">
+    <h3>你最喜歡的球星：</h3>
+    <select v-model="likedNBAStar" style="width: 210px;">
+      <option>Cobe Bryn</option>
+      <option>James Harden</option>
+      <option>Labron James</option>
+    </select>
+    <h3>我的全明星：</h3>
+    <select v-model="likedNBAStars" multiple style="width: 210px;height: 210px;">
+      <option>Cobe Bryn</option>
+      <option>James Harden</option>
+      <option>Labron James</option>
+      <option>Steven Curry</option>
+      <option>Keven Drun</option>
+      <option>Michale Jordan</option>
+      <option>James Harden2</option>
+      <option>Labron James2</option>
+      <option>Steven Curry2</option>
+      <option>Keven Drun2</option>
+    </select>
+    <h3>選擇結果</h3>
+    <p>我最喜歡：{{likedNBAStar}}</p>
+    <p>我的全明星:{{likedNBAStars}}</p>
+  </div>    
+<script>
+  var myApp = new Vue({
+    el:'#myApp',
+    data:{
+      likedNBAStar: null,
+      likedNBAStars: [],
+    },
+    method:{
+      
+    }
+})
+</script>
+
+
+</body>    
+
+</html>

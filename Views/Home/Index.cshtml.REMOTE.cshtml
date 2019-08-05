@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>第一頁</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <script src="~/Scripts/vue.js"></script>    
+</head>
+<body>
+  <div class="xxx">
+    <h2>待辦事項</h2>
+    <input type="text" placeholder="請輸入todo事項" v-model="newtodo" v-on:keyup.enter="addtodo(newtodo)">
+    <ol>
+      <li v-for="d in todo">
+        {{d.content}} - 
+        <a href="#" v-on:click.prevent="deltodo(d)">刪除</a>
+      </li>
+    </ol>
+  </div>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>   
+<script>
+var edison = new Vue({
+  el:'.xxx',
+  data:{
+    todo:[],
+    newtodo:''
+  },  
+  methods:{
+    addtodo:function(t){
+      this.todo.push({
+        content:t,
+        completed:false
+      })
+    },
+    deltodo:function(t){
+      this.todo.splice(this.todo.indexOf(t),1)
+  }
+}
+});
+</script>
+
+
+</body>    
+
+</html>
