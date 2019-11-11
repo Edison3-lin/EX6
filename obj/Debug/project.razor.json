@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\MVC\\EX6\\EX6.csproj",
+  "FilePath": "c:\\Users\\Edison-T303UA\\Downloads\\EX6\\EX6.csproj",
   "Configuration": {
     "ConfigurationName": "UnsupportedRazor",
     "LanguageVersion": "1.0",
@@ -15,5 +15,5 @@
   },
   "RootNamespace": null,
   "Documents": [],
-  "SerializationFormat": "0.1"
+  "SerializationFormat": "0.2"
 }
